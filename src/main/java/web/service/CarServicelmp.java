@@ -1,4 +1,4 @@
-package web.CarService;
+package web.service;
 
 import org.springframework.stereotype.Component;
 import web.model.Car;
@@ -6,10 +6,11 @@ import web.model.Car;
 import java.util.List;
 
 @Component
-public class CarService {
+public class CarServicelmp implements CarService {
     private Car car = new Car();
     List<Car> cars = car.allCars();
 
+    @Override
     public List<Car> showCar(Integer count) {
         if (count == null) {
             return cars.subList(0, cars.size());
