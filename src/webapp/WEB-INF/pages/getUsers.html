@@ -6,27 +6,14 @@
 </head>
 <body>
 <td th:text="${user .getName()}"/> <td th:text="${user .getSurname()}"/>
-<!--<p th:text="${user.getName()}">VALUE</p>-->
-<!--<p th:text="${user.getSurname()}">VALUE</p>-->
 <br>
 <br>
 <br>
 <a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
-<!--<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>-->
 <br>
 <br>
 <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
-<!--    <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">-->
     <input type="submit" value="Delete"/>
 </form>
-
-<!--<p th:text="${user.getName()}">VALUE</p>-->
-<!--<p th:text="${user.getId()}">VALUE</p>-->
-
-<!--<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>-->
-
-<!--<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">-->
-<!--    <input type="submit" value="Delete"/>-->
-<!--</form>-->
 </body>
 </html>

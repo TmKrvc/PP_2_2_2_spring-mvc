@@ -6,16 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import web.dao.UserDAO;
-import web.dao.UserDAOImpl;
 import web.model.User;
 
 @Controller
-//@RequestMapping("/users")
 @RequestMapping("/")
 public class UserController {
     @Autowired
     private UserDAO userDAO;
-
 
 
     @GetMapping()
@@ -38,25 +35,25 @@ public class UserController {
 
     @PostMapping
     public String create(@ModelAttribute("user") User user) {
-        userDAO.addUser(user.getName(),user.getSurname());
+        userDAO.addUser(user.getName(), user.getSurname());
         return "redirect:/";
 
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(Model model,@PathVariable("id") int id){
-        model.addAttribute("user",userDAO.getUser(id));
+    public String edit(Model model, @PathVariable("id") int id) {
+        model.addAttribute("user", userDAO.getUser(id));
         return "edit";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") User user,@PathVariable("id") int id){
-        userDAO.updateUser(id,user.getName(),user.getSurname());
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userDAO.updateUser(id, user.getName(), user.getSurname());
         return "redirect:/";
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") int id){
+    public String delete(@PathVariable("id") int id) {
         userDAO.removeUser(id);
         return "redirect:/";
     }
